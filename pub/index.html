@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <link href="/css/vendor/bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/vendor/bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <script type="text/javascript" src="/js/vendor/requirejs/require.js" data-main="js/main"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="navbar">
+          <div class="navbar-inner">
+            <ul class="nav">
+              <li class="">
+                <form class="navbar-search">
+                  <input type="text" class="search-query" placeholder="Search">
+                </form>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <h2>Today's to-dos</h2>
+        <div id="editor"></div>
+        <div id="board"></div>
+
+        <script type="text/mustache" id="todoBoard">
+          {{#if length}}
+          <ul>
+            {{#this}}
+            <li {{data 'todo'}}>
+            <input type="checkbox" {{#if done}}checked="checked"{{/if}}/>
+            <span class="description{{#if done}} done{{/if}}">{{description}}</span>
+            <span class="delete">×</span>
+            </li>
+            {{/this}}
+          </ul>
+          {{else}}
+          <div class="no-todos">No to-dos today. You're free!</div>
+          {{/if}}
+        </script>
+        <script type="text/mustache" id="todoEditor">
+          <input type="text" value="{{description}}"/>
+          <img class="spinner hidden" src="spinny.gif"/>
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

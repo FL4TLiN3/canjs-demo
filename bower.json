@@ -1,0 +1,15 @@
+{
+    "name": "canjs-demo",
+    "version": "0.0.0",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "components"
+    ],
+    "dependencies": {
+        "jquery": "*",
+        "canjs": "*",
+        "requirejs": "*",
+        "bootstrap": "*"
+    }
+}
