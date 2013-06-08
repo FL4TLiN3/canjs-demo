@@ -11,10 +11,7 @@
         <div class="navbar">
           <div class="navbar-inner">
             <ul class="nav">
-              <li class="">
-                <form class="navbar-search">
-                  <input type="text" class="search-query" placeholder="Search">
-                </form>
+              <li id="search">
               </li>
             </ul>
           </div>
@@ -23,6 +20,12 @@
         <h2>Today's to-dos</h2>
         <div id="editor"></div>
         <div id="board"></div>
+
+        <script type="text/mustache" id="searchForm">
+          <form class="navbar-search">
+            <input type="text" class="search-query" placeholder="Search">
+          </form>
+        </script>
 
         <script type="text/mustache" id="todoBoard">
           {{#if length}}
