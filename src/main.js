@@ -23,7 +23,13 @@
         }
     });
 
-    require(['can', 'jquery', 'bootstrap'], function(can, $) {
+    require([
+        'can',
+        'jquery',
+        'bootstrap',
+        'can/util/fixture',
+        'can/view/mustache'
+    ], function(can, $) {
         var Todo = can.Model({
             findAll: 'GET /todos',
             findOne: 'GET /todos/{id}',
@@ -65,12 +71,23 @@
             }
         });
 
+        var Search = can.Control({
+            init: function() {
+                var el = this.element;
+                this.element.html(can.view('searchForm'));
+            },
+            'input[type=text] change': function(el, ev) {
+            }
+        });
+
         var Routing = can.Control({
             init: function() {
                 can.route('todos/:id');
                 new TodoBoard($('#board'));
                 this.editor = new TodoEditor($('#editor'));
                 $('#editor').hide();
+
+                this.search = new Search($('#search'));
             },
             'todos/:id route': function(data) {
                 if(data.id) {
