@@ -71,15 +71,6 @@
             }
         });
 
-        var Search = can.Control({
-            init: function() {
-                var el = this.element;
-                this.element.html(can.view('searchForm'));
-            },
-            'input[type=text] change': function(el, ev) {
-            }
-        });
-
         var Routing = can.Control({
             init: function() {
                 can.route('todos/:id');

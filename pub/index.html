@@ -5,48 +5,40 @@
     <link href="/css/main.css" rel="stylesheet">
     <script type="text/javascript" src="/js/vendor/requirejs/require.js" data-main="js/main"></script>
   </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="navbar">
-          <div class="navbar-inner">
-            <ul class="nav">
-              <li id="search">
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <h2>Today's to-dos</h2>
-        <div id="editor"></div>
-        <div id="board"></div>
-
-        <script type="text/mustache" id="searchForm">
-          <form class="navbar-search">
-            <input type="text" class="search-query" placeholder="Search">
-          </form>
-        </script>
-
-        <script type="text/mustache" id="todoBoard">
-          {{#if length}}
-          <ul>
-            {{#this}}
-            <li {{data 'todo'}}>
-            <input type="checkbox" {{#if done}}checked="checked"{{/if}}/>
-            <span class="description{{#if done}} done{{/if}}">{{description}}</span>
-            <span class="delete">×</span>
-            </li>
-            {{/this}}
-          </ul>
-          {{else}}
-          <div class="no-todos">No to-dos today. You're free!</div>
-          {{/if}}
-        </script>
-        <script type="text/mustache" id="todoEditor">
-          <input type="text" value="{{description}}"/>
-          <img class="spinner hidden" src="spinny.gif"/>
-        </script>
-      </div>
+  <body class="container">
+    <header class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li><h1 class="brand">CanJS Demo<h1></li>
+      </ul>
     </div>
+    </header>
+
+    <div class="container">
+      <h2>What I have to do</h2>
+      <div id="editor"></div>
+      <div id="board"></div>
+    </div>
+
+    <script type="text/mustache" id="todoBoard">
+      {{#if length}}
+      <table class="table table-striped">
+        {{#this}}
+        <tr><td {{data 'todo'}}>
+        <input type="checkbox" {{#if done}}checked="checked"{{/if}}/>
+        <span class="description{{#if done}} done{{/if}}">{{description}}</span>
+        <span class="delete">[x]</span>
+        </td></tr>
+        {{/this}}
+      </ul>
+      {{else}}
+      <div class="no-todos">No to-dos today. You're free!</div>
+      {{/if}}
+    </script>
+
+    <script type="text/mustache" id="todoEditor">
+      <input type="text" value="{{description}}"/>
+      <img class="spinner hidden" src="spinny.gif"/>
+    </script>
   </body>
 </html>
